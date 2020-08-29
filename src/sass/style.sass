@@ -1,0 +1,44 @@
+* 
+	margin: 0
+	padding: 0
+	outline: none
+	box-sizing: border-box
+
+.container 
+  background-color: #A1E0E4
+  padding: 20px
+  height: 100vh
+
+.form
+  &-block 
+    margin-right: 2px
+    &__wrapper 
+ 	    display: flex
+ 	    margin-bottom: 10px
+ 	    position: relative
+ 	    z-index: 1
+ 	&-popup
+ 	  display: none
+ 	  position: absolute
+ 	  z-index: 10
+ 	  padding: 10px
+ 	  top: 60px
+ 	  left: 30px
+ 	  width: 250px
+ 	  height: 200px
+ 	  background-color: #6283EF
+ 	  color: #FAF9FA
+ 	  &.active 
+ 	    display: block
+ 	  &__wrapper 
+ 	    margin-bottom: 10px
+ 	  span 
+ 	   font-weight: bold
+ 	   color: #D4C9F6
+ 	&-helper
+	  margin-bottom: 10px
+
+
+
+
+
