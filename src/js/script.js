@@ -33,7 +33,7 @@ $(document).ready(function(){
 	  let b = needPacks % 6;
 	  let bS = needPacks / 6;
 
-	  let i = 0;
+	  let i = needPacks;
 	  let y = 0;
 
 	  if ( needPacks <= 6 ) {
@@ -43,7 +43,6 @@ $(document).ready(function(){
 	  	document.getElementById("packsSix").innerHTML = 0;
 	  	document.getElementById("packsEight").innerHTML = resultEight;
 	  } else if ( b == 0 ) {
-	  		i = needPacks;
 	  		do {
 	  			i = i - 6;
 	  			y = y + 1;
@@ -52,22 +51,33 @@ $(document).ready(function(){
 	  		document.getElementById("packsEight").innerHTML = i / 8;
 	  } else if ( needPacks % 2 == 1 ) {
 	  		i = needPacks + 1;
-	  		do {
-	  			i = i - 6;
-	  			y = y + 1;
-				} while ( i % 8 !== 0 );
-	  		document.getElementById("packsSix").innerHTML = y ;
-	  		document.getElementById("packsEight").innerHTML = i / 8;
-	  } else if ( a > 0 || b > 0 ) {
-	  		i = needPacks;
-	  		do {
-	  			i = i - 6;
-	  			y = y + 1;
-				} while ( i % 8 !== 0 );
-	  		document.getElementById("packsSix").innerHTML = y ;
-	  		document.getElementById("packsEight").innerHTML = i / 8;
-	  }
-
+	  		if ( i % 8 == 0 ) {
+	  			document.getElementById("packsSix").innerHTML = 0;
+	  			document.getElementById("packsEight").innerHTML = resultEight + 1;
+	  		} else {
+	  			if (i - 6 < 6) {
+	  				document.getElementById("packsSix").innerHTML = Math.floor(i / 6) + 1;
+	  			  document.getElementById("packsEight").innerHTML = 0;
+	  			} else {
+	  				do {
+		  			i = i - 6;
+		  			y = y + 1;
+					} while ( i % 8 !== 0 );
+		  		document.getElementById("packsSix").innerHTML = y ;
+		  		document.getElementById("packsEight").innerHTML = i / 8;
+	  			}
+	  		}
+	 	} else if ( i - 6 < 6 ) {
+	 		document.getElementById("packsSix").innerHTML = Math.floor(i / 6) + 1;
+	  	document.getElementById("packsEight").innerHTML = 0;
+	  } else {
+  	  do {
+  			i = i - 6;
+  			y = y + 1;
+			} while ( i % 8 !== 0 );
+  		document.getElementById("packsSix").innerHTML = y ;
+  		document.getElementById("packsEight").innerHTML = i / 8;
+		}	
 	});
 
 	$('.popup-button').on('click', function() {
